@@ -10,6 +10,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 
+# Add support for memcached
+gem 'dalli'
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

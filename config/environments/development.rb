@@ -1,6 +1,10 @@
 Heroku::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
+  # Added support for dalli gem for memcached caching. Added 11/14/2010 by nborkert.
+  # Insure that you have started the memcached server prior to using locally
+  config.cache_store = :dalli_store
+
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
