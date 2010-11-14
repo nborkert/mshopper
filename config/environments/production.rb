@@ -2,7 +2,7 @@ Heroku::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
   # Set Dalli as provider for memcached support. Added 11/14/2010 by nborkert
-  # config.cache_store = :dalli_store
+  config.cache_store = :dalli_store
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests

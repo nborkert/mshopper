@@ -11,7 +11,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'unicorn'
 
 # Add support for memcached
-# gem 'dalli'
+gem 'dalli'
 
 # Deploy with Capistrano
 # gem 'capistrano'
