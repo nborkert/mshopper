@@ -2,8 +2,18 @@ class StationsController < ApplicationController
   # GET /stations
   # GET /stations.xml
   def index
-    @stations = Station.all
-
+    if params[:lat] == nil or params[:lon] == nil then
+      @stations = Station.all
+	else
+      #@stations = Station.find_all_by_zip(params[:zip])
+	  latMax = BigDecimal.new(params[:lat]) + 0.2
+	  latMin = BigDecimal.new(params[:lat]) - 0.2
+	  lonMax = BigDecimal.new(params[:lon]) + 0.2
+	  lonMin = BigDecimal.new(params[:lon]) - 0.2
+	  
+	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
+	end
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @stations }
@@ -14,7 +24,7 @@ class StationsController < ApplicationController
   # GET /stations/1.xml
   def show
     @station = Station.find(params[:id])
-
+	
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @station }
