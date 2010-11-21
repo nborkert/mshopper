@@ -6,10 +6,10 @@ class StationsController < ApplicationController
       @stations = Station.all
 	else
       #@stations = Station.find_all_by_zip(params[:zip])
-	  latMax = BigDecimal.new(params[:lat]) + 0.2
-	  latMin = BigDecimal.new(params[:lat]) - 0.2
-	  lonMax = BigDecimal.new(params[:lon]) + 0.2
-	  lonMin = BigDecimal.new(params[:lon]) - 0.2
+	  latMax = BigDecimal.new(params[:lat]) + 10.0
+	  latMin = BigDecimal.new(params[:lat]) - 10.0
+	  lonMax = BigDecimal.new(params[:lon]) + 10.2
+	  lonMin = BigDecimal.new(params[:lon]) - 10.2
 	  
 	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
 	end
