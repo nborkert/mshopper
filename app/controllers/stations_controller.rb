@@ -8,8 +8,8 @@ class StationsController < ApplicationController
       #@stations = Station.find_all_by_zip(params[:zip])
 	  latMax = BigDecimal.new(params[:lat]) + 10.0
 	  latMin = BigDecimal.new(params[:lat]) - 10.0
-	  lonMax = BigDecimal.new(params[:lon]) + 10.2
-	  lonMin = BigDecimal.new(params[:lon]) - 10.2
+	  lonMax = BigDecimal.new(params[:lon]) + 10.0
+	  lonMin = BigDecimal.new(params[:lon]) - 10.0
 	  
 	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
 	end
@@ -17,6 +17,7 @@ class StationsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @stations }
+	  format.json { render :json => @stations }
     end
   end
 
