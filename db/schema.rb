@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101120200503) do
+ActiveRecord::Schema.define(:version => 20101125172915) do
 
   create_table "stations", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20101120200503) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "enrollment_date"
   end
+
+  add_index "stations", ["lat", "lon"], :name => "latlon"
 
 end
