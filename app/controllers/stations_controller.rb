@@ -19,6 +19,9 @@ class StationsController < ApplicationController
 	  user_qry.lon = params[:lon]
 	  
 	  #if any stations were returned in query, add them to user's geo query and save
+	  if @stations != nil then
+	    user_qry.stations << @stations
+	  end
 	  user_qry.save
 	  
 	end
