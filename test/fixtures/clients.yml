@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  referral_code: MyString
+  userid: MyString
+  password_hash: MyString
+  password_salt: MyString
+  credit_balance: 9.99
+  credit_effective_date: 2010-11-28
+
+two:
+  contact_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  referral_code: MyString
+  userid: MyString
+  password_hash: MyString
+  password_salt: MyString
+  credit_balance: 9.99
+  credit_effective_date: 2010-11-28

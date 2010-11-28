@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @client.contact_name %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%= @client.email_address %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @client.phone_number %>
+</p>
+
+<p>
+  <b>Referral code:</b>
+  <%= @client.referral_code %>
+</p>
+
+<p>
+  <b>Userid:</b>
+  <%= @client.userid %>
+</p>
+
+<p>
+  <b>Password hash:</b>
+  <%= @client.password_hash %>
+</p>
+
+<p>
+  <b>Password salt:</b>
+  <%= @client.password_salt %>
+</p>
+
+<p>
+  <b>Credit balance:</b>
+  <%= @client.credit_balance %>
+</p>
+
+<p>
+  <b>Credit effective date:</b>
+  <%= @client.credit_effective_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
