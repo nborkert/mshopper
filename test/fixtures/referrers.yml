@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  referral_code: MyString
+  referral_rate: 9.99
+
+two:
+  contact_name: MyString
+  email_address: MyString
+  phone_number: MyString
+  referral_code: MyString
+  referral_rate: 9.99

@@ -10,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128145849) do
+ActiveRecord::Schema.define(:version => 20101128151910) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "contact_name"
+    t.string   "email_address"
+    t.string   "phone_number"
+    t.string   "referral_code"
+    t.string   "userid"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.decimal  "credit_balance"
+    t.date     "credit_effective_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "geo_queries", :force => true do |t|
     t.decimal  "lat"

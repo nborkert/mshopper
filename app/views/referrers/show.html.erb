@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @referrer.contact_name %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%= @referrer.email_address %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @referrer.phone_number %>
+</p>
+
+<p>
+  <b>Referral code:</b>
+  <%= @referrer.referral_code %>
+</p>
+
+<p>
+  <b>Referral rate:</b>
+  <%= @referrer.referral_rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_referrer_path(@referrer) %> |
+<%= link_to 'Back', referrers_path %>

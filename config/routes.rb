@@ -1,4 +1,6 @@
 Heroku::Application.routes.draw do
+  resources :referrers
+
   resources :clients
 
   resources :stations
