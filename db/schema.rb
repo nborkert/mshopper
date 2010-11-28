@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128154219) do
+ActiveRecord::Schema.define(:version => 20101128184022) do
 
   create_table "clients", :force => true do |t|
     t.string   "contact_name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20101128154219) do
     t.datetime "updated_at"
   end
 
+  add_index "geo_queries_stations", ["geo_query_id"], :name => "index_geo_queries_stations_on_geo_query_id"
   add_index "geo_queries_stations", ["station_id"], :name => "index_geo_queries_stations_on_station_id"
 
   create_table "referrers", :force => true do |t|
@@ -65,8 +66,10 @@ ActiveRecord::Schema.define(:version => 20101128154219) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "enrollment_date"
+    t.integer  "client_id"
   end
 
+  add_index "stations", ["client_id"], :name => "index_stations_on_client_id"
   add_index "stations", ["lat", "lon"], :name => "latlon"
 
 end
