@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128184022) do
+ActiveRecord::Schema.define(:version => 20101128191857) do
 
   create_table "clients", :force => true do |t|
     t.string   "contact_name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20101128184022) do
     t.datetime "updated_at"
   end
 
-  create_table "geo_queries_stations", :force => true do |t|
+  create_table "geo_queries_stations", :id => false, :force => true do |t|
     t.integer  "geo_query_id"
     t.integer  "station_id"
     t.datetime "created_at"

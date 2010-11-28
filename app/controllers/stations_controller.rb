@@ -12,6 +12,15 @@ class StationsController < ApplicationController
 	  lonMin = BigDecimal.new(params[:lon]) - 10.0
 	  
 	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
+	  
+	  #create geoquery for analytics
+	  user_qry = GeoQuery.new
+	  user_qry.lat = params[:lat]
+	  user_qry.lon = params[:lon]
+	  
+	  #if any stations were returned in query, add them to user's geo query and save
+	  user_qry.save
+	  
 	end
    
     respond_to do |format|
@@ -29,6 +38,7 @@ class StationsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @station }
+	  format.json { render :json => @station }
     end
   end
 
@@ -40,6 +50,7 @@ class StationsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @station }
+	  format.json { render :json => @station }
     end
   end
 
