@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  qeo_query_id: 1
+  station_id: 1
+
+two:
+  qeo_query_id: 1
+  station_id: 1
