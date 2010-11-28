@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125172915) do
+ActiveRecord::Schema.define(:version => 20101128144939) do
+
+  create_table "geo_queries", :force => true do |t|
+    t.decimal  "lat"
+    t.decimal  "lon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stations", :force => true do |t|
     t.string   "name"
