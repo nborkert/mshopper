@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+ <fieldset>
+ <legend>Enter Client Details</legend>
+ 
   <div class="field">
     <%= f.label :contact_name %><br />
     <%= f.text_field :contact_name %>
@@ -32,8 +35,12 @@
     <%= f.text_field :userid %>
   </div>
   <div class="field">
-    <%= f.label :password_hash %><br />
-    <%= f.text_field :password_hash %>
+    <%= f.label :password, "Password" %><br />
+    <%= f.password_field :password, :size => 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirm" %><br />
+    <%= f.password_field :password_confirmation, :size => 40 %>
   </div>
   <div class="field">
     <%= f.label :password_salt %><br />
@@ -50,4 +57,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  </fieldset>
+  
 <% end %>
