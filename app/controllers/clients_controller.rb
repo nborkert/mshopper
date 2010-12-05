@@ -14,8 +14,14 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.xml
   def show
-    @client = Client.find(params[:id])
-
+    #if session[:userid] != nil
+	 # puts "USERID found in session, searching by userid"
+	 # @client = Client.find_by_userid(session[:userid])
+	#else
+	 # puts "No USERID in session"
+	 # @client = Client.find(params[:id])  
+	#end
+    @client = Client.find_by_userid(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }

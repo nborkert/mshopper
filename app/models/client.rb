@@ -12,13 +12,18 @@ class Client < ActiveRecord::Base
   
   def Client.authenticate(userid, password)
     if client = find_by_userid(userid)
-	  if client.password_hash == encrypt_password(password, user.password_salt)
+	  #puts "FOUND userid object for userid"
+	  #puts userid
+	  
+	  if client.password_hash == encrypt_password(password, client.password_salt)
 	    client
 	  end
 	end
   end
   
   def Client.encrypt_password(password, salt)
+    #puts "password_hash shown on next line"
+    #puts Digest::SHA2.hexdigest(password + "armstrong" + salt)
     Digest::SHA2.hexdigest(password + "armstrong" + salt)
   end
   
@@ -27,20 +32,23 @@ class Client < ActiveRecord::Base
     @password = password
 	
 	if password.present?
+      #puts "Assigned password, now generating salt"
 	  generate_password_salt
-	  self.password_hash = self.class.encrypt_password(password, self.password_salt)
+	  self.password_hash = self.class.encrypt_password(password, password_salt)
 	end
   end
   
   
   private
   
-  def password_must_be_present
-    errors.add(:password, "Password is missing") unless password_hash.present?
-  end
+    def password_must_be_present
+      errors.add(:password, "is missing") unless password_hash.present?
+    end
   
-  def generate_password_salt
-    self.password_salt = self.object_id.to_s + rand.to_s
-  end
+    def generate_password_salt
+      self.password_salt = self.object_id.to_s + rand.to_s
+	  #puts "Generated salt, shown on next line"
+	  #puts self.password_salt
+    end
     
 end
