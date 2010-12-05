@@ -19,9 +19,9 @@ class ClientsController < ApplicationController
 	 # @client = Client.find_by_userid(session[:userid])
 	#else
 	 # puts "No USERID in session"
-	 # @client = Client.find(params[:id])  
+	  @client = Client.find(params[:id])  
 	#end
-    @client = Client.find_by_userid(params[:id])
+    #@client = Client.find_by_userid(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }
