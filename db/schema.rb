@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128191857) do
+ActiveRecord::Schema.define(:version => 20101208231751) do
 
   create_table "clients", :force => true do |t|
     t.string   "contact_name"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20101128191857) do
 
   create_table "stations", :force => true do |t|
     t.string   "name"
-    t.decimal  "lat",               :precision => 10, :scale => 7
-    t.decimal  "lon",               :precision => 10, :scale => 7
+    t.string   "lat"
+    t.string   "lon"
     t.string   "street_addr_line1"
     t.string   "street_addr_line2"
     t.string   "city"

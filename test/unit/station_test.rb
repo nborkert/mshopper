@@ -31,8 +31,7 @@ class StationTest < ActiveSupport::TestCase
 	puts 'LAT: '+location.lat
 	puts 'LON: '+location.lon 
 	puts 'ERRORS: '+location.location_errors
-	assert location.location_errors == 'Multiple locations found.'
-	
+	assert location.location_errors == 'Multiple locations found. Only a single location is permitted.'	
 	
   end
   

@@ -42,15 +42,14 @@ module GoogleMaps
       lat = lat_lon[1]
       #puts lat_lon[1]
       lon = lat_lon[0]
-      full_url = 'http://maps.google.com/maps/api/staticmap?center=' + lat_lon[1] + ',' + lat_lon[0] + '&zoom=14&sensor=false&size=256x256&maptype=roadmap&markers=color:green%7Clabel:.%7C' + lat_lon[1] +','+lat_lon[0]
+      #full_url = 'http://maps.google.com/maps/api/staticmap?center=' + lat_lon[1] + ',' + lat_lon[0] + '&zoom=14&sensor=false&size=256x256&maptype=roadmap&markers=color:green%7Clabel:.%7C' + lat_lon[1] +','+lat_lon[0]
       #puts full_url
     end
 	location = LatLon.new(lat, lon)
 	if location_count > 1
-	  location.location_errors = 'Multiple locations found.'
+	  location.location_errors = 'Multiple locations found. Only a single location is permitted.'
 	end
 	if location_count == 0
-	puts 'FOUND NO LOCATION in google_maps'
 	  location.location_errors = 'Location not found.'
 	end
 	return location 

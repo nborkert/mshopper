@@ -15,7 +15,6 @@ class Station < ActiveRecord::Base
 	    puts 'IN location.location_errors for Station.find_location'
 		puts location.location_errors
 		errors.add("", location.location_errors)
-	  
 	end
 	self.lat = location.lat
 	self.lon = location.lon
