@@ -66,22 +66,24 @@ class StationsController < ApplicationController
   # POST /stations.xml
   def create
     @station = Station.new(params[:station])
-
-    respond_to do |format|
+	
+	respond_to do |format|
       if @station.save
         format.html { redirect_to(@station, :notice => 'Station was successfully created.') }
         format.xml  { render :xml => @station, :status => :created, :location => @station }
-      else
+	  else
         format.html { render :action => "new" }
         format.xml  { render :xml => @station.errors, :status => :unprocessable_entity }
       end
-    end
+	end	
+	
   end
 
   # PUT /stations/1
   # PUT /stations/1.xml
   def update
     @station = Station.find(params[:id])
+	# Call location mapping service to find latitude and longitude for supplied street address
 
     respond_to do |format|
       if @station.update_attributes(params[:station])
