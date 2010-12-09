@@ -35,4 +35,13 @@ class StationTest < ActiveSupport::TestCase
 	
   end
   
+  test "Retrieve stored station and display map img" do
+    test_station = Station.find_by_name('MyString')
+	puts test_station.zip
+	puts test_station.lat
+	puts test_station.create_static_map_img_url(test_station.lat.to_s, test_station.lon.to_s)
+  
+  
+  end
+  
 end

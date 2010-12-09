@@ -8,16 +8,7 @@ one:
   street_addr_line2: MyString
   city: MyString
   state: MyString
-  zip: MyString
+  zip: 18947
   description: MyString
 
-two:
-  name: MyString
-  lat: 9.99
-  lon: 9.99
-  street_addr_line1: MyString
-  street_addr_line2: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
-  description: MyString
+

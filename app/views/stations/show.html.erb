@@ -6,7 +6,7 @@
 </p>
 
 <p>
-   <img src="<%= @station.create_static_map_img_url(@station.lat, @station.lon) %>" alt="map display"/>
+   <img src="<%= @station.create_static_map_img_url(@station.lat.to_s, @station.lon.to_s) %>" alt="map display"/>
 </p>
 
 <p>
