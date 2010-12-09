@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209004208) do
+ActiveRecord::Schema.define(:version => 20101209010522) do
 
   create_table "clients", :force => true do |t|
     t.string   "contact_name"
@@ -52,24 +52,5 @@ ActiveRecord::Schema.define(:version => 20101209004208) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "stations", :force => true do |t|
-    t.string   "name"
-    t.decimal  "lat",               :precision => 10, :scale => 7
-    t.decimal  "lon",               :precision => 10, :scale => 7
-    t.string   "street_addr_line1"
-    t.string   "street_addr_line2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "description"
-    t.date     "enrollment_date"
-    t.integer  "client_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "stations", ["client_id"], :name => "index_stations_on_client_id"
-  add_index "stations", ["lat", "lon"], :name => "latlon"
 
 end
