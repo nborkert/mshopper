@@ -1,5 +1,7 @@
 Heroku::Application.routes.draw do
   
+  resources :ev_owners
+
   controller :sessions do
     get 'login' => :new
 	post 'login' => :create

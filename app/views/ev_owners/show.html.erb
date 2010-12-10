@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email address:</b>
+  <%= @ev_owner.email_address %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @ev_owner.lat %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%= @ev_owner.lon %>
+</p>
+
+
+<%= link_to 'Edit', edit_ev_owner_path(@ev_owner) %> |
+<%= link_to 'Back', ev_owners_path %>
