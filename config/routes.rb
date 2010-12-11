@@ -6,6 +6,8 @@ Heroku::Application.routes.draw do
     get 'login' => :new
 	post 'login' => :create
 	delete 'logout' => :destroy
+	get 'logout' => :destroy
+	post 'logout' => :destroy
   end
 
   resources :referrers
