@@ -26,7 +26,11 @@ class StationsController < ApplicationController
 	  lonMax = BigDecimal.new(params[:lon]) + 10.0
 	  lonMin = BigDecimal.new(params[:lon]) - 10.0
 	  
-	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
+	  if params[:client_id] == nil  #Add client_id parameter to query if it was sent in request
+	    @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
+	  else
+	    @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin and client_id = :client_id", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin, :client_id => params[:client_id]})
+	  end
 	  
 	  #if any stations were returned in consumer query, add them to user's geo query and save
       if @stations != nil then
