@@ -1,4 +1,7 @@
 class ClientsController < ApplicationController
+  skip_before_filter  :authorize
+  
+  
   # GET /clients
   # GET /clients.xml
   def index

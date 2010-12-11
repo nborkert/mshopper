@@ -1,4 +1,6 @@
 class EvOwnersController < ApplicationController
+  skip_before_filter  :authorize
+  
   # GET /ev_owners
   # GET /ev_owners.xml
   def index

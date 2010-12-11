@@ -1,31 +1,45 @@
 class StationsController < ApplicationController
+  skip_before_filter  :authorize, :only => [:index, :show]
+  
   # GET /stations
   # GET /stations.xml
+  # This action is the heart of the application from the consumer's point of view. It performs the query to find nearby stations.
   def index
-    if params[:lat] == nil or params[:lon] == nil then
-      @stations = Station.all
-	else
-      #@stations = Station.find_all_by_zip(params[:zip])
-	  latMax = BigDecimal.new(params[:lat]) + 10.0
+    if params[:lat] == nil or params[:lon] == nil then  #not a consumer query
+	  if session[:userid] == nil  #No client userid in session, this is an admin query
+        @stations = Station.all
+	  else  #Found a client userid in session, restrict results to client's stations
+	    client_result = Client.find_by_userid(session[:userid])
+		
+		if client_result.stations != nil #ActiveRecord returns nil when attempting to do a 'find' and not finding anything
+											#The reference to .stations does a 'find' and returns nil if no stations found for the client
+          @stations = client_result.stations
+		else    #Need to send a non-nil, empty array back to view
+		  @stations = []
+		end
+		
+	  end
+	  
+	else  #found lat and lon in query, this is a consumer query
+      latMax = BigDecimal.new(params[:lat]) + 10.0
 	  latMin = BigDecimal.new(params[:lat]) - 10.0
 	  lonMax = BigDecimal.new(params[:lon]) + 10.0
 	  lonMin = BigDecimal.new(params[:lon]) - 10.0
 	  
 	  @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})
 	  
-	  #create geoquery for analytics
-	  user_qry = GeoQuery.new
-	  user_qry.lat = params[:lat]
-	  user_qry.lon = params[:lon]
-	  
-	  #if any stations were returned in query, add them to user's geo query and save
-	  if @stations != nil then
+	  #if any stations were returned in consumer query, add them to user's geo query and save
+      if @stations != nil then
+	    #create geoquery for analytics
+        user_qry = GeoQuery.new
+	    user_qry.lat = params[:lat]
+	    user_qry.lon = params[:lon]	  
 	    user_qry.stations << @stations
-	  end
-	  user_qry.save
-	  
+	    user_qry.save  
+      end
+	 	 	  
 	end
-   
+	
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @stations }
@@ -66,6 +80,8 @@ class StationsController < ApplicationController
   # POST /stations.xml
   def create
     @station = Station.new(params[:station])
+	client_result = Client.find_by_userid(session[:userid])
+	@station.client = client_result
 	
 	respond_to do |format|
       if @station.save
@@ -83,7 +99,7 @@ class StationsController < ApplicationController
   # PUT /stations/1.xml
   def update
     @station = Station.find(params[:id])
-	# Call location mapping service to find latitude and longitude for supplied street address
+	# Call location mapping service to find latitude and longitude for supplied street address. Handled by validation on station model.
 
     respond_to do |format|
       if @station.update_attributes(params[:station])

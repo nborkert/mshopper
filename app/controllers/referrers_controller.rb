@@ -1,4 +1,7 @@
 class ReferrersController < ApplicationController
+  skip_before_filter  :authorize
+  
+  
   # GET /referrers
   # GET /referrers.xml
   def index
