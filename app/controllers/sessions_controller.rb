@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     if client = Client.authenticate(params[:userid], params[:password])
 	  session[:userid] = client.userid
 	  #puts client.id
+	  puts 'KILL THIS'
 	  redirect_to clients_url+'/'+client.id.to_s
 	else
 	  redirect_to login_url, :alert => "Invalid userid/password combination"
