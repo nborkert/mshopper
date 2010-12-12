@@ -5,6 +5,11 @@ class Client < ActiveRecord::Base
   
   validates :userid, :presence => true, :uniqueness => true
   validates :password, :confirmation => true
+  validates :email_address, :presence => true
+  validates :contact_name, :presence => true
+  
+  
+  
   attr_accessor :password_confirmation
   attr_reader  :password 
   
