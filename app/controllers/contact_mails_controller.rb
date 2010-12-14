@@ -1,4 +1,6 @@
 class ContactMailsController < ApplicationController
+  skip_before_filter  :authorize
+
   # GET /contact_mails
   # GET /contact_mails.xml
   def index
