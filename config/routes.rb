@@ -1,5 +1,7 @@
 Heroku::Application.routes.draw do
   
+  resources :contact_mails
+
   resources :ev_owners
 
   controller :sessions do
