@@ -1,6 +1,10 @@
 Heroku::Application.routes.draw do
   
-  resources :contact_mails
+  #resources :contact_mails
+  controller :contact_mails do
+    get 'contact_mails/new' => :new 
+	post 'contact_mails/new' => :create
+  end
 
   resources :ev_owners
 

@@ -43,7 +43,7 @@ class ContactMailsController < ApplicationController
   # POST /contact_mails.xml
   def create
     @contact_mail = ContactMail.new(params[:contact_mail])
-
+   
     respond_to do |format|
       if @contact_mail.save
 	    #send email

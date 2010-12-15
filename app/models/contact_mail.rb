@@ -1,2 +1,5 @@
-class ContactMail < ActiveRecord::Base
+class ContactMail 
+
+  attr_accessor :from, :subj, :message 
+  
 end
