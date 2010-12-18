@@ -47,7 +47,7 @@ class ContactUsEmailsController < ApplicationController
     respond_to do |format|
       if @contact_us_email.save
 	    ContactMailer.send_contact_us_email(@contact_us_email).deliver
-        format.html { redirect_to(@contact_us_email, :notice => 'Email has been sent.') }
+        format.html { redirect_to(@contact_us_email, :notice => 'Thank you for your email. We will review it soon.') }
         format.xml  { render :xml => @contact_us_email, :status => :created, :location => @contact_us_email }
       else
         format.html { render :action => "new" }
