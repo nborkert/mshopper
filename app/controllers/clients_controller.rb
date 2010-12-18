@@ -54,7 +54,8 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to(clients_url, :notice => 'Successfully created user #{@client.userid}.') }
+        #format.html { redirect_to(clients_url, :notice => 'Successfully created account.') }
+		format.html { render :action => "show" }
         format.xml  { render :xml => @client, :status => :created, :location => @client }
       else
         format.html { render :action => "new" }
@@ -70,7 +71,8 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        format.html { redirect_to(clients_url, :notice => 'Successfully updated user #{@client.userid}.') }
+        #format.html { redirect_to(clients_url, :notice => 'Successfully updated account.') }
+		format.html { render :action => "show" }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

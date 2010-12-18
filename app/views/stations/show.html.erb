@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @station.name %>
+   <img src="<%= @station.create_static_map_img_url(@station.lat.to_s, @station.lon.to_s) %>" alt="map display"/>
 </p>
 
 <p>
-   <img src="<%= @station.create_static_map_img_url(@station.lat.to_s, @station.lon.to_s) %>" alt="map display"/>
+  <b>Name:</b>
+  <%= @station.name %>
 </p>
 
 <p>
@@ -39,6 +39,9 @@
   <%= @station.description %>
 </p>
 
+<%= link_to 'Account Home', :controller => 'clients', :action => 'show', :params => @station.client.id.to_s %>
 
-<%= link_to 'Edit', edit_station_path(@station) %> |
-<%= link_to 'Back', stations_path %>
+<!--
+<%= link_to 'Edit', edit_station_path(@station) %> 
+ |
+<%= link_to 'Back', stations_path % -->

@@ -10,9 +10,11 @@
       </ul>
     </div>
   <% end %>
+<fieldset>
+ <legend>Contact Us</legend>
 
   <div class="field">
-    <%= f.label :from %><br />
+    <%= f.label "Your Email Address" %><br />
     <%= f.text_field :from %>
   </div>
   <div class="field">
@@ -20,11 +22,12 @@
     <%= f.text_field :message %>
   </div>
   <div class="field">
-    <%= f.label :subj %><br />
+    <%= f.label "Subject" %><br />
     <%= f.text_field :subj %>
   </div>
   <div class="actions">
     <!-- %= f.submit % -->
 	<%= submit_tag "Send email" %>
   </div>
+  </fieldset>
 <% end %>

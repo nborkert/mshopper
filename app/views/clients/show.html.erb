@@ -20,10 +20,12 @@
   <%= @client.referral_code %>
 </p>
 
+<!-- 
 <p>
   <b>Userid:</b>
   <%= @client.userid %>
 </p>
+
 
 <p>
   <b>Password hash:</b>
@@ -34,6 +36,8 @@
   <b>Password salt:</b>
   <%= @client.password_salt %>
 </p>
+-->
+
 
 <p>
   <b>Credit balance:</b>
@@ -45,6 +49,8 @@
   <%= @client.credit_effective_date %>
 </p>
 
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Add a station', new_station_path %>|
+<%= link_to 'Manage stations', stations_path %>|
+<%= link_to 'Edit Account', edit_client_path(@client) %> 
+<!-- |
+<%= link_to 'Back', clients_path %-->

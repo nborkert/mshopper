@@ -1,4 +1,7 @@
 <h1>Listing clients</h1>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <table>
   <tr>
@@ -7,8 +10,6 @@
     <th>Phone number</th>
     <th>Referral code</th>
     <th>Userid</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
     <th>Credit balance</th>
     <th>Credit effective date</th>
     <th></th>
@@ -23,8 +24,6 @@
     <td><%= client.phone_number %></td>
     <td><%= client.referral_code %></td>
     <td><%= client.userid %></td>
-    <td><%= client.password_hash %></td>
-    <td><%= client.password_salt %></td>
     <td><%= client.credit_balance %></td>
     <td><%= client.credit_effective_date %></td>
     <td><%= link_to 'Show', client %></td>

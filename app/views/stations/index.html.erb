@@ -29,11 +29,11 @@
     <td><%= station.description %></td>
     <td><%= link_to 'Show', station %></td>
     <td><%= link_to 'Edit', edit_station_path(station) %></td>
-    <td><%= link_to 'Destroy', station, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', station, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Station', new_station_path %>
+<%= link_to 'Add a Station', new_station_path %>
