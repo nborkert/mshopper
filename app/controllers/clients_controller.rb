@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  skip_before_filter  :authorize
+  skip_before_filter  :authorize, :only => [:index, :new, :create]
   
   
   # GET /clients
@@ -54,6 +54,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
+	    session[:userid] = @client.userid 
         #format.html { redirect_to(clients_url, :notice => 'Successfully created account.') }
 		format.html { render :action => "show" }
         format.xml  { render :xml => @client, :status => :created, :location => @client }

@@ -39,9 +39,6 @@
   <%= @station.description %>
 </p>
 
-<%= link_to 'Account Home', :controller => 'clients', :action => 'show', :params => @station.client.id.to_s %>
 
-<!--
-<%= link_to 'Edit', edit_station_path(@station) %> 
- |
-<%= link_to 'Back', stations_path % -->
+<%= link_to 'Account Home', :controller => 'clients', :action => 'show', :id => @station.client_id %>
+
