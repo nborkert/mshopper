@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Heroku</title>
+  <title>Electric Vehicle Charging Stations</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
-<body>
-
-<%= yield %>
-
+<body id="site">
+  <div id="banner">
+    <%= @page_title || "Electric Vehicle Charging Stations" %>
+  </div>
+  <div id="columns">
+    <div id="side">
+	 <a href="http://mshopper.heroku.com">Home</a><br/>
+	 <a href="http://mshopper.heroku.com/clients/new">Sign Up</a><br/>
+	 <a href="http://mshopper.heroku.com/login">Login</a><br/>
+     <a href="http://mshopper.heroku.com/contact_us_emails/new">Contact Us</a><br/>
+     <a href="http://mshopper.heroku.com/logout">Logout</a><br/>
+	</div>
+	<div id="main">
+		<%= yield %>
+	</div>
+  </div>
 </body>
 </html>
