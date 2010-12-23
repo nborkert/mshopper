@@ -11,6 +11,8 @@ Heroku::Application.routes.draw do
 	get 'logout' => :destroy
 	post 'logout' => :destroy
   end
+  
+  resources :developers
 
   resources :referrers
 
