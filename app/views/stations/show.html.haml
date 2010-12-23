@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  %img{:alt => "map display", :src => @station.create_static_map_img_url(@station.lat.to_s, @station.lon.to_s)}/
+%p
+  %b Name:
+  = @station.name
+%p
+  %b Street addr line1:
+  = @station.street_addr_line1
+%p
+  %b Street addr line2:
+  = @station.street_addr_line2
+%p
+  %b City:
+  = @station.city
+%p
+  %b State:
+  = @station.state
+%p
+  %b Zip:
+  = @station.zip
+%p
+  %b Description:
+  = @station.description
+= link_to 'Account Home', :controller => 'clients', :action => 'show', :id => @station.client_id
