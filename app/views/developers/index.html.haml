@@ -2,12 +2,73 @@
 %p
 All developers are encouraged to query our database of Electric Vehicle (EV) charging stations using our REST-based API.
 %p
+No fees and no usage limits currently apply. Build a mobile app, a browser-based trip planner, an interface to query the directory directly from the car, or a social media interface. Please drop us a line through our 
+%a{:href => "/contact_us_emails/new"} Contact Us 
+link and let us know how your application will use this data so that we can plan accordingly. We would love to hear from you!
+%p
 A sample query follows the format of: http://mshopper.heroku.com/stations/?lat=40.37483328&lon=-75.11872690&format=json
 %p
-The "lat" and "lon" parameters indicate the decimal latitude and longitude of the desired location. Query results of EV charging stations will be returned within a reasonable driving distance from the specified location. Decimal latitude and longitude coordinates of the EV charging stations are returned in the query results, enabling you to calculate driving distance, portray the stations on a map, or incorporate the query results into another application.
+The "lat" and "lon" parameters indicate the decimal latitude and longitude of the desired location. 
+Query results of EV charging stations will be returned within a reasonable driving distance from the specified location. 
+Decimal latitude and longitude coordinates of the EV charging stations are returned in the query results, 
+enabling you to calculate driving distance, portray the stations on a map, or incorporate the query results into another application.
 %p
 Supported output formats are XML and JSON. Specify the desired output format by setting the value of the "format" parameter to "xml" or "json" as desired. 
 %p
-Currently, no usage limits are in place or planned for the future. Please drop us a line through our 
-%a{:href => "/contact_us_emails/new"} Contact Us 
-link and let us know how your application uses this data. We would love to hear from you!
+A sample XML response returning two charging stations would follow the format of:
+%p
+  %textarea{:rows => "35", :cols => "80"}
+    <?xml version="1.0" encoding="UTF-8"?>
+    <stations type="array">
+    <station>
+    <city>Newark</city>
+    <client-id type="integer" nil="true"></client-id>
+    <created-at type="datetime">2010-12-09T15:38:49Z</created-at>
+    <description>Great prices</description>
+    <enrollment-date type="date" nil="true"></enrollment-date>
+    <id type="integer">3</id>
+    <lat type="decimal">39.6783050</lat>
+    <lon type="decimal">-75.6518710</lon>
+    <name>John's Energy</name>
+    <state>DE</state>
+    <street-addr-line1>55 Here Street</street-addr-line1>
+    <street-addr-line2></street-addr-line2>
+    <updated-at type="datetime">2010-12-09T15:38:49Z</updated-at>
+    <zip>19702</zip>
+    </station>
+    <station>
+    <city>Philadelphia</city>
+    <client-id type="integer">2</client-id>
+    <created-at type="datetime">2010-12-22T16:12:27Z</created-at>
+    <description>Milk 50% off today only!</description>
+    <enrollment-date type="date" nil="true"></enrollment-date>
+    <id type="integer">4</id>
+    <lat type="decimal">39.956029</lat>
+    <lon type="decimal">-75.196631</lon>
+    <name>Test2 Station</name>
+    <state>PA</state>
+    <street-addr-line1>3700 Market Street</street-addr-line1>
+    <street-addr-line2></street-addr-line2>
+    <updated-at type="datetime">2010-12-24T02:29:12Z</updated-at>
+    <zip>19104</zip>
+    </station>
+    </stations>
+%p
+The same response formatted as a JSON response would follow the format of:
+%p
+  %textarea{:rows => 8, :cols =>120}
+    [{"station":{"city":"Wilmington","client_id":null,"created_at":"2010-12-09T15:38:49Z","description":"Great prices","enrollment_date":null,"id":3,"lat":"39.6783050","lon":"-75.6518710","name":"John's Energy","state":"DE","street_addr_line1":"55 Here Street","street_addr_line2":"","updated_at":"2010-12-09T15:38:49Z","zip":"19803"}},{"station":{"city":"Philadelphia","client_id":2,"created_at":"2010-12-22T16:12:27Z","description":"Milk 50% off today only!","enrollment_date":null,"id":4,"lat":"39.956029","lon":"-75.196631","name":"Test2 Station","state":"PA","street_addr_line1":"3700 Market Street","street_addr_line2":"","updated_at":"2010-12-24T02:29:12Z","zip":"19104"}}]
+%p 
+A query that finds no charging stations will return an XML response of 
+%p 
+  %textarea{:rows => "2", :cols => "80"}
+    <?xml version="1.0" encoding="UTF-8"?>
+    <nil-classes type="array"/>
+%p 
+Or a JSON response of
+%p 
+  %textarea{:rows => "2", :cols => "80"}
+    []
+
+
+    
