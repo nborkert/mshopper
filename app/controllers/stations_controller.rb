@@ -22,10 +22,10 @@ class StationsController < ApplicationController
 	  end
 	  
 	else  #found lat and lon in query, this is a consumer query
-      latMax = BigDecimal.new(params[:lat]) + 10.0
-	  latMin = BigDecimal.new(params[:lat]) - 10.0
-	  lonMax = BigDecimal.new(params[:lon]) + 10.0
-	  lonMin = BigDecimal.new(params[:lon]) - 10.0
+      latMax = BigDecimal.new(params[:lat]) + 0.5
+	  latMin = BigDecimal.new(params[:lat]) - 0.5
+	  lonMax = BigDecimal.new(params[:lon]) + 0.5
+	  lonMin = BigDecimal.new(params[:lon]) - 0.5
 	  
 	  if params[:client_id] == nil  #Add client_id parameter to query if it was sent in request
 	    @stations = Station.where("lat < :latMax and lat > :latMin and lon < :lonMax and lon > :lonMin", {:latMax => latMax, :latMin => latMin, :lonMax => lonMax, :lonMin => lonMin})

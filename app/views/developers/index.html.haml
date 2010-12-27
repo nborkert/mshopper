@@ -9,7 +9,7 @@ link and let us know how your application will use this data so that we can plan
 A sample query follows the format of: http://mshopper.heroku.com/stations/?lat=40.37483328&lon=-75.11872690&format=json
 %p
 The "lat" and "lon" parameters indicate the decimal latitude and longitude of the desired location. 
-Query results of EV charging stations will be returned within a reasonable driving distance from the specified location. 
+EV charging stations will be included in the query response if the stations' latitude and longitude are within +/- 0.5 decimal degrees from the specified location.
 Decimal latitude and longitude coordinates of the EV charging stations are returned in the query results, 
 enabling you to calculate driving distance, portray the stations on a map, or incorporate the query results into another application.
 %p
