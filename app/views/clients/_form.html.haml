@@ -1,0 +1,50 @@
+= form_for(@client) do |f|
+  - if @client.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@client.errors.count, "error")
+        prohibited this client from being saved:
+      %ul
+        - @client.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    %legend Enter Account Information
+    .field
+      = f.label :contact_name
+      %br/
+      = f.text_field :contact_name
+    .field
+      = f.label :email_address
+      %br/
+      = f.text_field :email_address
+    .field
+      = f.label :phone_number
+      %br/
+      = f.text_field :phone_number
+    .field
+      = f.label :referral_code
+      %br/
+      = f.text_field :referral_code
+    .field
+      = f.label :userid
+      %br/
+      = f.text_field :userid
+    .field
+      = f.label :password, "Password"
+      %br/
+      = f.password_field :password, :size => 40
+    .field
+      = f.label :password_confirmation, "Confirm"
+      %br/
+      = f.password_field :password_confirmation, :size => 40
+    .field
+      = f.label 'Desired Credit Balance (you will not be billed now, see our FAQs for more invoicing details)'
+      %br/
+      = f.text_field :credit_balance
+    .field
+      = f.label :credit_effective_date
+      %br/
+      = f.date_select :credit_effective_date
+    .actions
+      / %= f.submit %
+      = submit_tag "Submit"
