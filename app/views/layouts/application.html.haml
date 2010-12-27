@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title Electric Vehicle (EV) Charging Station Directory
+    = stylesheet_link_tag :all
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body#site
+    #banner
+      = @page_title || "Electric Vehicle (EV) Charging Station Directory"
+    #columns
+      #side
+        %a{:href => "/"} Home
+        %br/
+        %a{:href => "/clients/new"} Sign Up
+        %br/
+        %a{:href => "/login"} Login
+        %br/
+        %a{:href => "/contact_us_emails/new"} Contact Us
+        %br/
+        %a{:href => "/logout"} Logout
+        %br/
+        %a{:href => "/developers"} Developers
+        %br/
+        %a{:href => "/question/index"} FAQs
+        %br/
+      #main
+        = yield

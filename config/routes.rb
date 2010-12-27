@@ -1,5 +1,9 @@
 Heroku::Application.routes.draw do
   
+  get "question/index"
+
+  get "fa_qs/index"
+
   resources :contact_us_emails
 
   resources :ev_owners
