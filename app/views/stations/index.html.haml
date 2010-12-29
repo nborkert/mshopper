@@ -1,0 +1,27 @@
+%h1 Listing stations
+%table
+  %tr
+    %th Station Name
+    %th Street addr line1
+    %th Street addr line2
+    %th City
+    %th State
+    %th Zip
+    %th Description
+    %th
+    %th
+    %th
+  - @stations.each do |station|
+    %tr
+      %td= station.name
+      %td= station.street_addr_line1
+      %td= station.street_addr_line2
+      %td= station.city
+      %td= station.state
+      %td= station.zip
+      %td= station.description
+      %td= link_to 'Show on Map', station
+      %td= link_to 'Edit', edit_station_path(station)
+      %td= link_to 'Delete', station, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'Add a Station', new_station_path
