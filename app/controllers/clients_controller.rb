@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-  #skip_before_filter  :authorize, :only => [:index, :new, :create]
-  skip_before_filter  :authorize
+  skip_before_filter  :authorize, :only => [:index, :new, :create]
+  
   
   # GET /clients
   # GET /clients.xml

@@ -1,7 +1,7 @@
 class StationsController < ApplicationController
   #skip_before_filter  :authorize, :only => [:index, :show]
-  #skip_before_filter  :authorize, :only => [:index]
-  skip_before_filter   :authorize
+  skip_before_filter  :authorize, :only => [:index]
+  
   
   # GET /stations
   # GET /stations.xml
