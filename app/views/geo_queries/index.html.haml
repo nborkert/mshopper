@@ -1,0 +1,12 @@
+%h1 Listing GeoQueries
+%table
+  %tr
+    %th Lat
+    %th Lon
+    %th CreatedAt
+  - @geo_queries.each do |geo_query|
+    %tr
+      %td= geo_query.lat
+      %td= geo_query.lon
+      %td= geo_query.created_at
+%br/

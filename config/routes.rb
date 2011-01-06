@@ -1,6 +1,8 @@
 Heroku::Application.routes.draw do
   
   get "question/index"
+  
+  resources :geo_queries
 
   resources :contact_us_emails
 
