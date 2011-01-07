@@ -5,8 +5,8 @@ class GeoQueriesController < ApplicationController
   # GET /geo_queries.xml
   def index
     puts 'getting geo queries'
-    #@geo_queries = GeoQuery.where('id > 238')  #prior queries were test results from me
-	@geo_queries = GeoQuery.where('id > 10')  #prior queries were test results from me
+    @geo_queries = GeoQuery.where('id > 238')  #prior queries were test results from me
+	#@geo_queries = GeoQuery.where('id > 10')  #prior queries were test results from me
 	
 	@final_url = 'http://maps.google.com/maps/api/staticmap?zoom=1&size=1024x1024&sensor=false&markers=size:tiny'
 	@geo_queries.each do |qry|
