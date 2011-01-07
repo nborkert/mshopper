@@ -10,7 +10,7 @@ class GeoQueriesController < ApplicationController
 	
 	@final_url = 'http://maps.google.com/maps/api/staticmap?zoom=1&size=1024x1024&sensor=false&markers=size:tiny'
 	@geo_queries.each do |qry|
-	  @final_url = @final_url + '|' + qry.lat.to_s + ',' +qry.lon.to_s 	
+	  @final_url = @final_url + '|' + qry.lat.to_s.str[0,7] + ',' +qry.lon.to_s.str[0,7]	
 	end
 
     respond_to do |format|
