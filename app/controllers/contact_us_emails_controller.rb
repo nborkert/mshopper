@@ -2,7 +2,6 @@ class ContactUsEmailsController < ApplicationController
   skip_before_filter  :authorize
 
   # GET /contact_us_emails
-  # test comment
   # GET /contact_us_emails.xml
   def index
     @contact_us_emails = ContactUsEmail.all
